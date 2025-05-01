@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heimdall
+  namespace: misc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: heimdall
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: heimdall
+    spec:
+      containers:
+      - image: linuxserver/heimdall:2.6.3
+        name: heimdall
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: PGID
+          value: "1000"
+        - name: PUID
+          value: "1000"
+        ports:
+        - containerPort: 443
+          name: https
+          protocol: TCP
+        volumeMounts:
+        - name: config
+          mountPath: /config
+      restartPolicy: Always
+      volumes:
+      - name: config
+        nfs:
+          server: ${NFS_SERVER}
+          path: /volume1/kubernetes/config/heimdall
