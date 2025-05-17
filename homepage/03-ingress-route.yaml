@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: homepage-ingress
+  namespace: misc
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`homepage.${DOMAIN}`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: homepage-service
+      port: web
