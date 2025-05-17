@@ -37,7 +37,7 @@ spec:
         lifecycle:
             postStart:
               exec:
-                command: ["/bin/sh", "-c", "cp -r -L /tmp/config/* /app/config/; chown -R 1000 /app/config"]
+                command: ["/bin/sh", "-c", "mkdir -p /app/config", "cp -r -L /tmp/config/* /app/config/; chown -R 1000 /app/config"]
         volumeMounts:
         - name: config
           mountPath: /tmp/config
