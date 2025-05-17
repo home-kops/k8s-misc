@@ -6,10 +6,7 @@ metadata:
 data:
   kubernetes.yaml: |
     mode: cluster
-  settings.yaml: |
-    title: Drew's Cool Shit
-    theme: dark
-    color: cyan
+  settings.yaml: ""
   custom.css: ""
   custom.js: ""
   bookmarks.yaml: |
