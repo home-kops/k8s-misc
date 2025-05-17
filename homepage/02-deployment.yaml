@@ -24,35 +24,19 @@ spec:
           value: "1000"
         - name: PUID
           value: "1000"
+        - name: HOMEPAGE_ALLOWED_HOSTS
+          value: homepage.${DOMAIN}
         ports:
         - containerPort: 3000
           name: web
           protocol: TCP
+        lifecycle:
+            postStart:
+              exec:
+                command: ["/bin/sh", "-c", "cp -r -L /tmp/config/* /app/config/; chown -R 1000 /app/config"]
         volumeMounts:
         - name: config
-          mountPath: /app/config/custom.js
-          subPath: custom.js
-        - name: config
-          mountPath: /app/config/custom.css
-          subPath: custom.css
-        - name: config
-          mountPath: /app/config/bookmarks.yaml
-          subPath: bookmarks.yaml
-        - name: config
-          mountPath: /app/config/docker.yaml
-          subPath: docker.yaml
-        - name: config
-          mountPath: /app/config/kubernetes.yaml
-          subPath: kubernetes.yaml
-        - name: config
-          mountPath: /app/config/services.yaml
-          subPath: services.yaml
-        - name: config
-          mountPath: /app/config/settings.yaml
-          subPath: settings.yaml
-        - name: config
-          mountPath: /app/config/widgets.yaml
-          subPath: widgets.yaml
+          mountPath: /tmp/config
       restartPolicy: Always
       volumes:
       - name: config

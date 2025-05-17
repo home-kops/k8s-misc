@@ -35,6 +35,7 @@ homepage_dir="${project_path}/homepage"
 
 # Replace env variables
 envsubst <"${homepage_dir}"/01-configmap.yaml | sponge "${homepage_dir}"/01-configmap.yaml
+envsubst <"${homepage_dir}"/02-deployment.yaml | sponge "${homepage_dir}"/02-deployment.yaml
 envsubst <"${homepage_dir}"/04-ingress-route.yaml | sponge "${homepage_dir}"/04-ingress-route.yaml
 
 kubectl apply -f "${homepage_dir}" --dry-run="${dry_run_mode}"
