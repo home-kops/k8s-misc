@@ -51,7 +51,7 @@ data:
             widget:
               type: jellyfin
               url: https://jellyfin.${DOMAIN}
-              key: ${JELLYFIN_API_KEY}
+              key: ${HOMEPAGE_VAR_JELLYFIN_API_KEY}
               enableBlocks: true
               enableNowPlaying: true
               enableUser: true
