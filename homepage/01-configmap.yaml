@@ -14,6 +14,32 @@ data:
         - Jellyfin:
             - abbr: Jellyfin
               href: https://jellyfin.${DOMAIN}
+        - Jellyseerr:
+            - abbr: Jellyseerr
+              href: https://jellyseerr.${DOMAIN}
+        - Lidarr:
+            - abbr: Lidarr
+              href: https://lidarr.${DOMAIN}
+        - Sonarr:
+            - abbr: Sonarr
+              href: https://sonarr.${DOMAIN}
+        - Radarr:
+            - abbr: Radarr
+              href: https://radarr.${DOMAIN}
+    - Monitoring:
+        - Grafana:
+            - abbr: Grafana
+              href: https://grafana.${DOMAIN}
+        - InfluxDB:
+            - abbr: InfluxDB
+              href: https://influxdb.${DOMAIN}
+    - Development:
+        - Jenkins:
+            - abbr: Jenkins
+              href: https://jenkins.${DOMAIN}
+        - Github:
+            - abbr: Github
+              href: https://github.com/home-kops
   services.yaml: ""
   widgets.yaml: |
     - kubernetes:
