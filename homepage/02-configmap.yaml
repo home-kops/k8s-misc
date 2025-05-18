@@ -40,7 +40,22 @@ data:
         - Github:
             - abbr: Github
               href: https://github.com/home-kops
-  services.yaml: ""
+  services.yaml: |
+    - Jellyfin:
+      icon: jellyfin.png
+      href: https://jellyfin.${DOMAIN}
+      description: Watch movies and TV shows.
+      server: ${DOMAIN}
+      container: plex
+      widgets:
+      - type: jellyfin
+        url: https://jellyfin.${DOMAIN}
+        key: ${JELLYFIN_API_KEY}
+        enableBlocks: true
+        enableNowPlaying: true
+        enableUser: true
+        showEpisodeNumber: true
+        expandOneStreamToTwoRows: false
   widgets.yaml: |
     - kubernetes:
         cluster:
