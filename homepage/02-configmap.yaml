@@ -46,7 +46,7 @@ data:
       href: https://jellyfin.${DOMAIN}
       description: Watch movies and TV shows.
       server: ${DOMAIN}
-      container: plex
+      container: jellyfin
       widgets:
       - type: jellyfin
         url: https://jellyfin.${DOMAIN}
