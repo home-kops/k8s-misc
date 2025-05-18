@@ -48,7 +48,7 @@ data:
             description: Watch movies and TV shows.
             server: ${DOMAIN}
             container: jellyfin
-            widgets:
+            widget:
               type: jellyfin
               url: https://jellyfin.${DOMAIN}
               key: ${JELLYFIN_API_KEY}
